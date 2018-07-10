@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+
+
+    <context id="context1" targetRuntime="MyBatis3">
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/turingcodey?useUnicode=true&amp;characterEncoding=utf-8&amp;tinyInt1isBit=false"
+                        driverClass="com.mysql.jdbc.Driver" password="turing123" userId="root" />
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+
+        <!-- 生成model层 -->
+        <javaModelGenerator targetPackage="turing.turingcodey.data.model"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
+        <sqlMapGenerator targetPackage="turing.turingcodey.mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码 type="ANNOTATEDMAPPER",生成Java Model
+           和基于注解的Mapper对象 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象 type="XMLMAPPER",生成SQLMap
+           XML文件和独立的Mapper接口 -->
+        <javaClientGenerator targetPackage="turing.turingcodey.data.dao"
+                             targetProject="src/main/java" type="XMLMAPPER" >
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+
+        <!--&lt;!&ndash;  用户 &ndash;&gt;-->
+        <!--<table schema="turing_codey" tableName="users" domainObjectName="User"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+            <!--<columnOverride column="id" javaType="java.lang.Long"-->
+                            <!--jdbcType="BIGINT" />-->
+        <!--</table>-->
+
+        <table schema="turing_codey" tableName="works" domainObjectName="Work"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false" />
+            <!--  插入语句返回的自动生成主键 -->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="id" javaType="java.lang.Long"
+                            jdbcType="BIGINT" />
+        </table>
+
+        <!--&lt;!&ndash;  用户设备 &ndash;&gt;-->
+        <!--<table schema="turing_codey" tableName="user_device" domainObjectName="UserDevice"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+            <!--&lt;!&ndash;  插入语句返回的自动生成主键 &ndash;&gt;-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+            <!--<columnOverride column="id" javaType="java.lang.Long"-->
+                            <!--jdbcType="BIGINT" />-->
+        <!--</table>-->
+
+        <!--&lt;!&ndash;  用户设备与阿里云设备之间的关联关系  &ndash;&gt;-->
+        <!--<table schema="turing_codey" tableName="devices" domainObjectName="Device"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+            <!--&lt;!&ndash;  插入语句返回的自动生成主键 &ndash;&gt;-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+            <!--<columnOverride column="id" javaType="java.lang.Long"-->
+                            <!--jdbcType="BIGINT" />-->
+        <!--</table>-->
+
+        <!--&lt;!&ndash;  阿里云设备 &ndash;&gt;-->
+        <!--<table schema="turing_codey" tableName="ali_devices" domainObjectName="AliDevice"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--selectByExampleQueryId="false">-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+            <!--&lt;!&ndash;  插入语句返回的自动生成主键 &ndash;&gt;-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+            <!--<columnOverride column="id" javaType="java.lang.Long"-->
+                            <!--jdbcType="BIGINT" />-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>

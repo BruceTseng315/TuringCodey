@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:  # 数据库访问配置
+    url: jdbc:mysql://localhost:3306/turingcodey
+    username: root
+    password: turing123
+    driver-class-name: com.mysql.jdbc.Driver
+
+    # 具体druid配置参考 https://github.com/alibaba/druid/blob/master/druid-spring-boot-starter/src/test/resources/config-template.properties
+    druid:
+      # 连接池配置,下面配置说明请参考Druid Github Wiki，配置_DruidDataSource参考配置
+      initial-size: 10
+      min-idle: 2
+      max-active: 30
+      ###### Druid监控配置 ######
+      #下面配置说明请参考Druid Github Wiki，配置_配置WebStatFilter
+      web-stat-filter:
+        enabled: true
+
+
+
+
